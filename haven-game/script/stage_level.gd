@@ -20,42 +20,34 @@ func _ready():
 func spawn_type(type):
 	if type == "good_crab":
 		var good_crab = good_crab_path.instantiate()
-		randomize()
 		good_crab.global_position = Vector2(randi_range(300,500),randi_range(150,500))
 		get_parent().add_child(good_crab)
 	if type=="good_chick":
 		var good_chick = good_chick_path.instantiate()
-		randomize()
 		good_chick.global_position = Vector2(randi_range(300,500),randi_range(150,500))
 		get_parent().add_child(good_chick)
 	if type=="good_wolf":
 		var good_wolf = good_wolf_path.instantiate()
-		randomize()
 		good_wolf.global_position = Vector2(randi_range(300,500),randi_range(150,500))
 		get_parent().add_child(good_wolf)
 	if type=="good_turtle":
 		var good_turtle = good_turtle_path.instantiate()
-		randomize()
 		good_turtle.global_position = Vector2(randi_range(300,500),randi_range(150,500))
 		get_parent().add_child(good_turtle)
 	if type == "bad_crab":
 		var bad_crab = bad_crab_path.instantiate()
-		randomize()
 		bad_crab.global_position = Vector2(randi_range(700,900),randi_range(150,500))
 		get_parent().add_child(bad_crab)
 	if type=="bad_chick":
 		var bad_chick = bad_chick_path.instantiate()
-		randomize()
 		bad_chick.global_position = Vector2(randi_range(700,900),randi_range(150,500))
 		get_parent().add_child(bad_chick)
 	if type=="bad_wolf":
 		var bad_wolf = bad_wolf_path.instantiate()
-		randomize()
 		bad_wolf.global_position = Vector2(randi_range(700,900),randi_range(150,500))
 		get_parent().add_child(bad_wolf)
 	if type=="bad_turtle":
 		var bad_turtle = bad_turtle_path.instantiate()
-		randomize()
 		bad_turtle.global_position = Vector2(randi_range(700,900),randi_range(150,500))
 		get_parent().add_child(bad_turtle)
 
@@ -64,8 +56,9 @@ func _process(delta: float) -> void:
 		combat=false
 		Global.level+=1
 		print(Global.level)
-	if len(Global.animals)==0:
+	if len(Global.animals)==0 and combat:
 		combat=false
+		get_tree().change_scene_to_file("res://scenes/Defeat.tscn")
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("start") and not combat:

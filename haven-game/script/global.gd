@@ -1,6 +1,6 @@
 extends Node
 var battle_started=false
-var animals=['good_crab','good_chick','good_turtle']
+var animals=[]
 var enemies=[]
 var level=1
 
