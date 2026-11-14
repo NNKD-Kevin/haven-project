@@ -30,11 +30,11 @@ func _physics_process(delta: float) -> void:
 		if collider is CharacterBody2D:
 			if collider.side=='good':
 				collider.hp-=damage
-				collider.health_bar.value=hp
 				animated_sprite_2d.play("attack")
 				collider.flash_animation.play("flash")
 				audio_stream_player_2d.play()
 	if hp<=0:
+		Global.enemies.erase(self)
 		queue_free()
 
 

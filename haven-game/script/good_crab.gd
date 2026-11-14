@@ -15,7 +15,6 @@ var started=false
 func _ready() -> void:
 	health_bar.value=hp
 	animated_sprite_2d.play("default")
-	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
 	randomize()
 	velocity=Vector2.RIGHT.rotated(randf()*TAU)*speed
 func _process(delta: float) -> void:
@@ -31,11 +30,11 @@ func _physics_process(delta: float) -> void:
 		if collider is CharacterBody2D:
 			if collider.side=='bad':
 				collider.hp-=damage
-				health_bar.value=hp
 				animated_sprite_2d.play("attack")
 				collider.flash_animation.play("flash")
 				audio_stream_player_2d.play()
 	if hp<=0:
+		Global.animals.erase(self)
 		queue_free()
 
 	

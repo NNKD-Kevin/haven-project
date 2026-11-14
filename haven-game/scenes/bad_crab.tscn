@@ -97,6 +97,12 @@ bg_color = Color(0.14911401, 0.14911404, 0.14911401, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
 bg_color = Color(0.8515591, 0, 0.13914949, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pyl0t"]
+resource_local_to_scene = true
+shader = ExtResource("2_4vl24")
+shader_parameter/flash_color = Color(0, 0, 0, 1)
+shader_parameter/flash_value = 0.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=269655125]
 script = ExtResource("1_pyl0t")
 
@@ -125,6 +131,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_8vrlf")
 value = 50.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1470557052]
+material = SubResource("ShaderMaterial_pyl0t")
 stream = ExtResource("4_7fsrd")
 volume_db = 5.0
 
