@@ -15,17 +15,14 @@ var started=false
 
 func _ready() -> void:
 	health_bar.value=hp
+	randomize()
+	velocity=Vector2.RIGHT.rotated(randf()*TAU)*speed
+	devour_timer.start()
 func _process(delta: float) -> void:
 	health_bar.value=hp
 	if devour_ready:
 		hp-=delta*5
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed('start') and not started:
-		randomize()
-		velocity=Vector2.RIGHT.rotated(randf()*TAU)*speed
-		started=true
-		devour_timer.start()
 
 
 func _physics_process(delta: float) -> void:
