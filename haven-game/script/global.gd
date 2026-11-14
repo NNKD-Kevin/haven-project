@@ -1,6 +1,6 @@
 extends Node
 var battle_started=false
-var animals=['crab',]
+var animals=['good_crab','good_chick']
 var level=1
 
 func _ready()->void:

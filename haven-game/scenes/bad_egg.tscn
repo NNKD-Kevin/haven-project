@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://csqjmbw0psj26"]
+
+[ext_resource type="Script" uid="uid://bckswgwpfnq7u" path="res://script/bad_egg.gd" id="1_7kl37"]
+[ext_resource type="Texture2D" uid="uid://b7sdqmw7g7epk" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Sprites/egg.png" id="2_01njb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
+radius = 5.0
+height = 12.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=632679528]
+collision_layer = 2
+script = ExtResource("1_7kl37")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=953948282]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_01njb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=272194000]
+shape = SubResource("CapsuleShape2D_1vivr")

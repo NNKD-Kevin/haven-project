@@ -1,31 +1,32 @@
 [gd_scene format=3 uid="uid://cpu2fsfhn4oyr"]
 
-[ext_resource type="Script" uid="uid://dt62jhkixfllo" path="res://script/bad_crab.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://ct8nh7ot1fykm" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Animations/Coral Crab/CoralCrab.png" id="2_4ra3w"]
-[ext_resource type="Shader" uid="uid://brqe8r3r2c8yq" path="res://assets/shader/damage.gdshader" id="2_5uy6h"]
+[ext_resource type="Script" uid="uid://dt62jhkixfllo" path="res://script/bad_crab.gd" id="1_pyl0t"]
+[ext_resource type="Shader" uid="uid://brqe8r3r2c8yq" path="res://assets/shader/damage.gdshader" id="2_4vl24"]
+[ext_resource type="Texture2D" uid="uid://ct8nh7ot1fykm" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Animations/Coral Crab/CoralCrab.png" id="3_7w76e"]
+[ext_resource type="AudioStream" uid="uid://cwgoqls2w5bmv" path="res://assets/Sounds/punch.wav" id="4_7fsrd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5gy4"]
 size = Vector2(42, 33)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1vivr"]
-shader = ExtResource("2_5uy6h")
+shader = ExtResource("2_4vl24")
 shader_parameter/flash_color = Color(0.97529536, 0.97529536, 0.97529536, 1)
 shader_parameter/flash_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2brh"]
-atlas = ExtResource("2_4ra3w")
+atlas = ExtResource("3_7w76e")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dn4c7"]
-atlas = ExtResource("2_4ra3w")
+atlas = ExtResource("3_7w76e")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ws0vm"]
-atlas = ExtResource("2_4ra3w")
+atlas = ExtResource("3_7w76e")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhr3r"]
-atlas = ExtResource("2_4ra3w")
+atlas = ExtResource("3_7w76e")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
@@ -54,7 +55,7 @@ animations = [{
 }]
 
 [sub_resource type="Animation" id="Animation_4ra3w"]
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,7 +71,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_5uy6h"]
 resource_name = "flash"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -97,7 +98,7 @@ bg_color = Color(0.14911401, 0.14911404, 0.14911401, 1)
 bg_color = Color(0.8515591, 0, 0.13914949, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=269655125]
-script = ExtResource("1_md0e3")
+script = ExtResource("1_pyl0t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2035674120]
 position = Vector2(1, 6.5)
@@ -122,5 +123,9 @@ offset_bottom = -15.0
 theme_override_styles/background = SubResource("StyleBoxFlat_1vivr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8vrlf")
 value = 50.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1470557052]
+stream = ExtResource("4_7fsrd")
+volume_db = 5.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
