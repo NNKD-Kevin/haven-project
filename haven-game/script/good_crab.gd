@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name Animal
 @export var bounciness:=1.0
 const speed=300
 var hp=100

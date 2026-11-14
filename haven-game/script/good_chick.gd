@@ -11,6 +11,8 @@ var type='good_chick'
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation
 @onready var grow_timer: Timer = $grow_timer
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 
 
 var started=false
@@ -49,8 +51,10 @@ func fire():
 	egg.rotation = global_rotation
 	egg.velocity=velocity
 	get_parent().add_child(egg)
+	audio_stream_player_2d.play()
 
 
 func _on_grow_timer_timeout() -> void:
 	grown=true
 	animated_sprite_2d.play("chicken")
+	audio_stream_player_2d.play()

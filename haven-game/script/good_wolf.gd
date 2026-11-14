@@ -8,6 +8,8 @@ var type='good_wolf'
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation
 @onready var devour_timer: Timer = $devour_timer
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 var devour_ready=false
 var started=false
 
@@ -48,3 +50,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_devour_timer_timeout() -> void:
 	devour_ready=true
+	audio_stream_player_2d.play()
