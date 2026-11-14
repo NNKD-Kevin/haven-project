@@ -15,12 +15,9 @@ func _ready() -> void:
 	health_bar.value=hp
 func _process(delta: float) -> void:
 	health_bar.value=hp
-
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed('start') and not started:
-		randomize()
-		velocity=Vector2.RIGHT.rotated(randf()*TAU)*speed
-		started=true          
+	randomize()
+	velocity=Vector2.RIGHT.rotated(randf()*TAU)*speed
+		 
 
 func _physics_process(delta: float) -> void:
 	var collision=move_and_collide(velocity*delta)

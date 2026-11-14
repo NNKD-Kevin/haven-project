@@ -16,14 +16,11 @@ func _ready() -> void:
 	health_bar.value=hp
 	animated_sprite_2d.play("default")
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
+	randomize()
+	velocity=Vector2.RIGHT.rotated(randf()*TAU)*speed
 func _process(delta: float) -> void:
 	health_bar.value=hp
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed('start') and not started:
-		randomize()
-		velocity=Vector2.RIGHT.rotated(randf()*TAU)*speed
-		started=true
 
 func _physics_process(delta: float) -> void:
 	var collision=move_and_collide(velocity*delta)
