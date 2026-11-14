@@ -408,6 +408,60 @@ scale = Vector2(2.4583333, 2.375)
 sprite_frames = SubResource("SpriteFrames_ejki1")
 animation = &"Chicken"
 
+[node name="Description" type="Node" parent="Recruit/HBoxContainer/Option 1" unique_id=522973224]
+
+[node name="Chicken" type="Label" parent="Recruit/HBoxContainer/Option 1/Description" unique_id=1594253500]
+visible = false
+offset_left = 127.0
+offset_top = 368.0
+offset_right = 366.0
+offset_bottom = 573.0
+text = "CHICKEN:
+HP: 100
+Damage: 10
+Ability: Start as a harmless 
+chick then evolves to hen
+As hen, shoots egg which deals
+5 damage to enemy and heals
+10 HP to allies"
+
+[node name="Crab" type="Label" parent="Recruit/HBoxContainer/Option 1/Description" unique_id=1355037722]
+visible = false
+offset_left = 121.0
+offset_top = 360.0
+offset_right = 298.0
+offset_bottom = 461.0
+text = "CRAB:
+DAMAGE: 10
+HP: 100
+Ability: None"
+
+[node name="Wolf" type="Label" parent="Recruit/HBoxContainer/Option 1/Description" unique_id=1730292845]
+visible = false
+offset_left = 123.0
+offset_top = 368.0
+offset_right = 379.0
+offset_bottom = 573.0
+text = "WOLF:
+Damage: 0
+HP: 100
+Ability: Harmless when preying
+on animals. When hungry, health
+depletes slowly. If touches an 
+animal when hungry, eat them
+and heals"
+
+[node name="Turtle" type="Label" parent="Recruit/HBoxContainer/Option 1/Description" unique_id=1010673536]
+visible = false
+offset_left = 133.0
+offset_top = 388.0
+offset_right = 299.0
+offset_bottom = 489.0
+text = "Turtle:
+HP: 300
+Damage: 10
+Ability: Super slowed "
+
 [node name="Option2" type="Button" parent="Recruit/HBoxContainer" unique_id=46177921]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -421,6 +475,60 @@ scale = Vector2(2.4583333, 2.375)
 sprite_frames = SubResource("SpriteFrames_ejki1")
 animation = &"Chicken"
 
+[node name="Description" type="Node" parent="Recruit/HBoxContainer/Option2" unique_id=785970656]
+
+[node name="Chicken" type="Label" parent="Recruit/HBoxContainer/Option2/Description" unique_id=1777556338]
+visible = false
+offset_left = 127.0
+offset_top = 368.0
+offset_right = 366.0
+offset_bottom = 573.0
+text = "CHICKEN:
+HP: 100
+Damage: 10
+Ability: Start as a harmless 
+chick then evolves to hen
+As hen, shoots egg which deals
+5 damage to enemy and heals
+10 HP to allies"
+
+[node name="Crab" type="Label" parent="Recruit/HBoxContainer/Option2/Description" unique_id=238386412]
+visible = false
+offset_left = 121.0
+offset_top = 360.0
+offset_right = 298.0
+offset_bottom = 461.0
+text = "CRAB:
+DAMAGE: 10
+HP: 100
+Ability: None"
+
+[node name="Wolf" type="Label" parent="Recruit/HBoxContainer/Option2/Description" unique_id=2116058121]
+visible = false
+offset_left = 123.0
+offset_top = 368.0
+offset_right = 379.0
+offset_bottom = 573.0
+text = "WOLF:
+Damage: 0
+HP: 100
+Ability: Harmless when preying
+on animals. When hungry, health
+depletes slowly. If touches an 
+animal when hungry, eat them
+and heals"
+
+[node name="Turtle" type="Label" parent="Recruit/HBoxContainer/Option2/Description" unique_id=1302726393]
+visible = false
+offset_left = 133.0
+offset_top = 388.0
+offset_right = 299.0
+offset_bottom = 489.0
+text = "Turtle:
+HP: 300
+Damage: 10
+Ability: Super slowed "
+
 [node name="Option3" type="Button" parent="Recruit/HBoxContainer" unique_id=1170694630]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -433,6 +541,60 @@ position = Vector2(146, 132)
 scale = Vector2(2.4583333, 2.375)
 sprite_frames = SubResource("SpriteFrames_ejki1")
 animation = &"Chicken"
+
+[node name="Description" type="Node" parent="Recruit/HBoxContainer/Option3" unique_id=173582155]
+
+[node name="Chicken" type="Label" parent="Recruit/HBoxContainer/Option3/Description" unique_id=2070239563]
+visible = false
+offset_left = 127.0
+offset_top = 368.0
+offset_right = 366.0
+offset_bottom = 573.0
+text = "CHICKEN:
+HP: 100
+Damage: 10
+Ability: Start as a harmless 
+chick then evolves to hen
+As hen, shoots egg which deals
+5 damage to enemy and heals
+10 HP to allies"
+
+[node name="Crab" type="Label" parent="Recruit/HBoxContainer/Option3/Description" unique_id=1478753113]
+visible = false
+offset_left = 121.0
+offset_top = 360.0
+offset_right = 298.0
+offset_bottom = 461.0
+text = "CRAB:
+DAMAGE: 10
+HP: 100
+Ability: None"
+
+[node name="Wolf" type="Label" parent="Recruit/HBoxContainer/Option3/Description" unique_id=449911850]
+visible = false
+offset_left = 123.0
+offset_top = 368.0
+offset_right = 379.0
+offset_bottom = 573.0
+text = "WOLF:
+Damage: 0
+HP: 100
+Ability: Harmless when preying
+on animals. When hungry, health
+depletes slowly. If touches an 
+animal when hungry, eat them
+and heals"
+
+[node name="Turtle" type="Label" parent="Recruit/HBoxContainer/Option3/Description" unique_id=690638462]
+visible = false
+offset_left = 133.0
+offset_top = 388.0
+offset_right = 299.0
+offset_bottom = 489.0
+text = "Turtle:
+HP: 300
+Damage: 10
+Ability: Super slowed "
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1151433845]
 tile_set = SubResource("TileSet_eeo6d")
