@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c4pneenc53wmh" path="res://script/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://fyt50b1pjpo6" path="res://assets/MMBG.png" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cqwa2xlvhatxv" path="res://assets/Pixelout Personal Use Only.ttf" id="2_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://4h4cp2mwc4vm" path="res://assets/Sounds/calmbg.mp3" id="4_wu84c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ejki1"]
 texture = ExtResource("1_ekxnf")
@@ -35,6 +36,14 @@ corner_radius_bottom_left = 20
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_iqkd1"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_eeo6d"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wu84c"]
+
 [node name="MainMenu" type="Control" unique_id=1746759157]
 layout_mode = 3
 anchors_preset = 15
@@ -44,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqqt6")
 
-[node name="Panel" type="Panel" parent="." unique_id=306486973]
+[node name="Background" type="Panel" parent="." unique_id=306486973]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ejki1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1472731387]
+[node name="Main Buttons" type="VBoxContainer" parent="." unique_id=1472731387]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -68,7 +77,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 20
 
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=1439437415]
+[node name="Start" type="Button" parent="Main Buttons" unique_id=1439437415]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.007843138, 0.007843138, 0.007843138, 1)
@@ -78,7 +87,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
 text = "START GAME"
 
-[node name="Option" type="Button" parent="VBoxContainer" unique_id=1379672516]
+[node name="Option" type="Button" parent="Main Buttons" unique_id=1379672516]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.007843138, 0.007843138, 0.007843138, 1)
@@ -88,7 +97,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
 text = "OPTION"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1033844133]
+[node name="Quit" type="Button" parent="Main Buttons" unique_id=1033844133]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.007843138, 0.007843138, 0.007843138, 1)
@@ -117,6 +126,67 @@ text = "Bouncy Battlefield"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1622308759]
+stream = ExtResource("4_wu84c")
+autoplay = true
+
+[node name="Options" type="Panel" parent="." unique_id=1763092003]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -345.32123
+offset_top = -134.0
+offset_right = 345.32123
+offset_bottom = 289.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options" unique_id=728456855]
+layout_mode = 0
+offset_right = 689.3212
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 40
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Options" unique_id=146092081]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.16061
+offset_top = 151.375
+offset_right = 131.83939
+offset_bottom = 201.375
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.007843138, 0.007843138, 0.007843138, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ejki1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+text = "Back
+"
+
+[node name="HSlider" type="HSlider" parent="Options" unique_id=822201205]
+layout_mode = 0
+offset_left = 61.321228
+offset_top = 118.0
+offset_right = 665.64246
+offset_bottom = 134.0
+theme_override_styles/slider = SubResource("StyleBoxLine_iqkd1")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_eeo6d")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_wu84c")
+value = 50.0
+
+[connection signal="pressed" from="Main Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main Buttons/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="Main Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]

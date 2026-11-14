@@ -1,10 +1,12 @@
 extends Control
+@onready var main_buttons: VBoxContainer = $"Main Buttons"
+@onready var options: Panel = $Options
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	main_buttons.visible = true
+	options.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -15,8 +17,12 @@ func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _on_option_pressed() -> void:
-	pass # Replace with function body.
-
+	main_buttons.visible = false
+	options.visible = true 
 
 func _on_quit_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().quit()
+
+
+func _on_back_pressed() -> void:
+	_ready()

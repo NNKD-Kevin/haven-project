@@ -7,6 +7,7 @@ var damage=20
 @onready var health_bar=$HealthBar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 var started=false
@@ -33,6 +34,7 @@ func _physics_process(delta: float) -> void:
 			health_bar.value=hp
 			animated_sprite_2d.play("attack")
 			collider.flash_animation.play("flash")
+			audio_stream_player_2d.play()
 	if hp<=0:
 		queue_free()
 

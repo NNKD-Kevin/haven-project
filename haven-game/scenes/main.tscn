@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://4so7t222clb" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://cv35f4bujcmjq" path="res://scenes/animal.tscn" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cpu2fsfhn4oyr" path="res://scenes/enemy.tscn" id="6_eb6dy"]
-[ext_resource type="AudioStream" uid="uid://bbvlv5wwndalv" path="res://assets/Sounds/443128__sirkoto51__boss-battle-loop-3.wav" id="7_trceg"]
+[ext_resource type="AudioStream" uid="uid://bbvlv5wwndalv" path="res://assets/Sounds/boss.wav" id="7_trceg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_o6xl0")
