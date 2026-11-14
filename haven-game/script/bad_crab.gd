@@ -1,15 +1,13 @@
 extends CharacterBody2D
-class_name Animal
+class_name Enemy
 @export var bounciness:=1.0
 const speed=300
-var hp=100
+var hp=80
 var damage=20
+var side='bad'
 @onready var health_bar=$HealthBar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
-
 var started=false
 func _ready() -> void:
 	health_bar.value=hp
@@ -29,12 +27,12 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		velocity=velocity.bounce(collision.get_normal())*bounciness
 		var collider=collision.get_collider()
-		if collider is Enemy:
-			collider.hp-=damage
-			health_bar.value=hp
-			animated_sprite_2d.play("attack")
-			collider.flash_animation.play("flash")
-			audio_stream_player_2d.play()
+		if collider is CharacterBody2D:
+			if collider.side=='good':
+				collider.hp-=damage
+				collider.health_bar.value=hp
+				animated_sprite_2d.play("attack")
+				collider.flash_animation.play("flash")
 	if hp<=0:
 		queue_free()
 
