@@ -6,6 +6,7 @@ extends Node2D
 @onready var bounce: Label = $Label2
 @onready var timer_retry: Timer = $Timer3
 @onready var button: Button = $Button
+@onready var slap: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,15 +19,18 @@ func _ready() -> void:
 	
 	
 func _on_timer_timeout() -> void:
+	slap.play()
 	defeated.visible = true
 	timer_bounce.start()
 
 
 func _on_timer_2_timeout() -> void:
+	slap.play()
 	bounce.visible = true
 	timer_retry.start()
 	
 func _on_timer_3_timeout() -> void:
+	slap.play()
 	button.visible = true
 	
 func _on_button_pressed() -> void:
