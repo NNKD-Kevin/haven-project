@@ -8,6 +8,7 @@ var bad_wolf_path=preload("res://scenes/bad_wolf.tscn")
 var good_turtle_path=preload("res://scenes/good_turtle.tscn")
 var bad_turtle_path=preload("res://scenes/bad_turtle.tscn")
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var h_box_container: HBoxContainer = $HBoxContainer
 
 var starting_nodes:int
 var current_nodes:int
@@ -46,3 +47,7 @@ func _input(event: InputEvent) -> void:
 		
 	
 	
+
+
+func _on_button_2_pressed() -> void:
+	pass # Replace with function body.
