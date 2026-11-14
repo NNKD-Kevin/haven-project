@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://d0b8v2shfqru7"]
+
+[ext_resource type="Script" uid="uid://4ey6m2hwahi6" path="res://script/bad_wolf.gd" id="1_i6vtt"]
+[ext_resource type="Shader" uid="uid://brqe8r3r2c8yq" path="res://assets/shader/damage.gdshader" id="2_kqc7j"]
+[ext_resource type="Texture2D" uid="uid://cpj3hctbsmyfd" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Animations/Timber Wolf/TimberWolf.png" id="3_od7h4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5gy4"]
+size = Vector2(42, 33)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_236rq"]
+shader = ExtResource("2_kqc7j")
+shader_parameter/flash_color = Color(0.9929301, 0.9929301, 0.99293, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1kpt"]
+atlas = ExtResource("3_od7h4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmteg"]
+atlas = ExtResource("3_od7h4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xex4f"]
+atlas = ExtResource("3_od7h4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj6f6"]
+atlas = ExtResource("3_od7h4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1kpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmteg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xex4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj6f6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_4ra3w"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5uy6h"]
+resource_name = "flash"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dtbx"]
+_data = {
+&"RESET": SubResource("Animation_4ra3w"),
+&"flash": SubResource("Animation_5uy6h")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
+bg_color = Color(0.07123137, 0.0712314, 0.07123133, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
+bg_color = Color(0.9972066, 0, 0.035540707, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=269655125]
+script = ExtResource("1_i6vtt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2035674120]
+position = Vector2(1, 6.5)
+shape = SubResource("RectangleShape2D_v5gy4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1267356240]
+material = SubResource("ShaderMaterial_236rq")
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1vivr")
+autoplay = "default"
+frame_progress = 0.17061009
+
+[node name="FlashAnimation" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1825155774]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_8dtbx")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1921605112]
+offset_left = -26.0
+offset_top = -38.0
+offset_right = 29.0
+offset_bottom = -15.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1vivr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8vrlf")
+value = 50.0
+
+[node name="devour_timer" type="Timer" parent="." unique_id=694476860]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
+[connection signal="timeout" from="devour_timer" to="." method="_on_devour_timer_timeout"]

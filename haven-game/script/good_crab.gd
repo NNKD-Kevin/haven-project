@@ -24,7 +24,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed('start') and not started:
 		randomize()
 		velocity=Vector2.RIGHT.rotated(randf()*TAU)*speed
-		started=true
+		started=true          
 
 func _physics_process(delta: float) -> void:
 	var collision=move_and_collide(velocity*delta)
