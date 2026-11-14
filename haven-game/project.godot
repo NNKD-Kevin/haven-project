@@ -19,6 +19,7 @@ run/canvas_textures/default_texture_filter=0
 [autoload]
 
 Global="*uid://kbehudoo64yu"
+AudioControl="*uid://dqskbmqfxhhto"
 
 [display]
 
