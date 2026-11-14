@@ -2,9 +2,10 @@ extends CharacterBody2D
 class_name Enemy
 @export var bounciness:=1.0
 const speed=300
-var hp=80
+var hp=100
 var damage=20
 var side='bad'
+var type='bad_crab'
 @onready var health_bar=$HealthBar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation

@@ -5,6 +5,7 @@ const speed=300
 var hp=100
 var damage=20
 var side='good'
+var type='good_crab'
 @onready var health_bar=$HealthBar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation

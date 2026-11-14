@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bqq5315unhtyu"]
 
 [ext_resource type="Texture2D" uid="uid://c4bfhcet3n2qh" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="1_p57ef"]
-[ext_resource type="Script" uid="uid://crxycxa46dpgw" path="res://script/stage_level.gd" id="1_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c2l4jjr7llacl" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="2_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://dk3nov0xb4p4l" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="3_gee14"]
 [ext_resource type="Texture2D" uid="uid://4so7t222clb" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="4_0tnpc"]
@@ -222,9 +221,6 @@ sources/2 = SubResource("TileSetAtlasSource_1bvp3")
 sources/3 = SubResource("TileSetAtlasSource_lquwl")
 
 [node name="Node2D" type="Node2D" unique_id=1046699917]
-script = ExtResource("1_u5sy4")
-animal_scene = ExtResource("5_vtaks")
-enemy_scene = ExtResource("6_kvpfn")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1151433845]
 tile_set = SubResource("TileSet_eeo6d")
