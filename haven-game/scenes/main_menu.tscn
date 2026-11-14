@@ -178,6 +178,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
 text = "Back
 "
 
+[node name="Volune" type="Label" parent="Options" unique_id=790225900]
+layout_mode = 0
+offset_left = 58.321228
+offset_top = 57.0
+offset_right = 263.64246
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 40
+text = "Volume"
+
 [node name="AudioControl" type="HSlider" parent="Options" unique_id=822201205]
 layout_mode = 0
 offset_left = 61.321228
@@ -187,8 +196,9 @@ offset_bottom = 134.0
 theme_override_styles/slider = SubResource("StyleBoxLine_iqkd1")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_eeo6d")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_wu84c")
-min_value = -80.0
+max_value = 30.0
 step = 0.05
+value = 15.0
 script = ExtResource("5_8ln24")
 audio_bus_name = "Music"
 
