@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://fyt50b1pjpo6" path="res://assets/MMBG.png" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cqwa2xlvhatxv" path="res://assets/Pixelout Personal Use Only.ttf" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://4h4cp2mwc4vm" path="res://assets/Sounds/calmbg.mp3" id="4_wu84c"]
+[ext_resource type="Script" uid="uid://dqskbmqfxhhto" path="res://script/audio_control.gd" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://csy55321ac6l4" path="res://script/check_button.gd" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ejki1"]
 texture = ExtResource("1_ekxnf")
@@ -129,6 +131,7 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1622308759]
 stream = ExtResource("4_wu84c")
 autoplay = true
+bus = &"Music"
 
 [node name="Options" type="Panel" parent="." unique_id=1763092003]
 layout_mode = 1
@@ -175,7 +178,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
 text = "Back
 "
 
-[node name="HSlider" type="HSlider" parent="Options" unique_id=822201205]
+[node name="AudioControl" type="HSlider" parent="Options" unique_id=822201205]
 layout_mode = 0
 offset_left = 61.321228
 offset_top = 118.0
@@ -184,9 +187,24 @@ offset_bottom = 134.0
 theme_override_styles/slider = SubResource("StyleBoxLine_iqkd1")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_eeo6d")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_wu84c")
-value = 50.0
+min_value = -80.0
+step = 0.05
+script = ExtResource("5_8ln24")
+audio_bus_name = "Music"
+
+[node name="Fullscreen Control" type="CheckButton" parent="Options" unique_id=2091732936]
+layout_mode = 0
+offset_left = 60.321228
+offset_top = 152.0
+offset_right = 639.3212
+offset_bottom = 245.0
+theme_override_font_sizes/font_size = 40
+text = "Fullscreen"
+script = ExtResource("6_rtw2f")
 
 [connection signal="pressed" from="Main Buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main Buttons/Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="Main Buttons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Options/Fullscreen Control" to="Options/Fullscreen Control" method="_on_toggled"]
