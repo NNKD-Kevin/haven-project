@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://bcoxdudmy0k13"]
+
+[ext_resource type="Script" uid="uid://c7l2rlc4gjxm" path="res://script/defeat.gd" id="1_ortuk"]
+[ext_resource type="Texture2D" uid="uid://fyt50b1pjpo6" path="res://assets/MMBG.png" id="2_ije3m"]
+[ext_resource type="FontFile" uid="uid://cqwa2xlvhatxv" path="res://assets/Pixelout Personal Use Only.ttf" id="3_043hq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jphpq"]
+texture = ExtResource("2_ije3m")
+
+[sub_resource type="Animation" id="Animation_wtg6v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oh8ql"]
+resource_name = "You Lost"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_btxua"]
+resource_name = "darken"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.9019608)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsboe"]
+_data = {
+&"RESET": SubResource("Animation_wtg6v"),
+&"You Lost": SubResource("Animation_oh8ql"),
+&"darken": SubResource("Animation_btxua")
+}
+
+[node name="Defeat" type="Node2D" unique_id=388521652]
+script = ExtResource("1_ortuk")
+
+[node name="Panel" type="Panel" parent="." unique_id=184594295]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jphpq")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Panel" unique_id=1505759631]
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1954653155]
+libraries/ = SubResource("AnimationLibrary_fsboe")
+
+[node name="Label" type="Label" parent="." unique_id=257026942]
+offset_left = 159.0
+offset_top = 43.0
+offset_right = 1020.0
+offset_bottom = 214.0
+theme_override_fonts/font = ExtResource("3_043hq")
+theme_override_font_sizes/font_size = 170
+text = "You lost!"
+
+[node name="Timer" type="Timer" parent="." unique_id=1439335699]
+wait_time = 4.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
