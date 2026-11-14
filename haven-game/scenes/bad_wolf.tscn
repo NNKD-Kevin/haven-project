@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cu1yrcjmsmf14" path="res://assets/Sounds/wolf_howl.wav" id="4_kqc7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5gy4"]
-size = Vector2(42, 33)
+size = Vector2(44, 39)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_236rq"]
 resource_local_to_scene = true
@@ -97,7 +97,7 @@ bg_color = Color(0.9972066, 0, 0.035540707, 1)
 script = ExtResource("1_i6vtt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2035674120]
-position = Vector2(1, 6.5)
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_v5gy4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1267356240]

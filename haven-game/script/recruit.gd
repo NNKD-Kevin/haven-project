@@ -18,7 +18,7 @@ func _ready():
 		var gacha=randi_range(1,4)
 		if gacha==1:
 			sprite.play('Chicken')
-			choices.append('good_chicken')
+			choices.append('good_chick')
 		elif gacha==2:
 			sprite.play('Crab')
 			choices.append('good_crab')

@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		if collider is CharacterBody2D:
 			if collider.side=='good' and devour_ready:
 				collider.queue_free()
+				Global.animals.erase(collider)
 				devour_ready=false
 				devour_timer.start()
 				hp+=25

@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 		var collider=collision.get_collider()
 		if collider is CharacterBody2D and collider.type!='good_chick':
 			if collider.side=='bad':
-				collider.hp-=10
+				collider.hp-=5
 				collider.flash_animation.play('flash')
 				queue_free()
 			elif collider.side=='good':

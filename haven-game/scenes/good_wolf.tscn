@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpj3hctbsmyfd" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Animations/Timber Wolf/TimberWolf.png" id="4_xex4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5gy4"]
-size = Vector2(42, 33)
+size = Vector2(45, 38)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_236rq"]
 shader = ExtResource("2_xex4f")
@@ -102,7 +102,7 @@ shader_parameter/flash_value = 0.0
 script = ExtResource("1_l1kpt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2035674120]
-position = Vector2(1, 6.5)
+position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_v5gy4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1267356240]

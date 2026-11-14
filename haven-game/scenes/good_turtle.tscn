@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cwgoqls2w5bmv" path="res://assets/Sounds/punch.wav" id="4_avh58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5gy4"]
-size = Vector2(42, 33)
+size = Vector2(46, 25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_236rq"]
 resource_local_to_scene = true
@@ -97,7 +97,7 @@ bg_color = Color(1.150325e-05, 0.6457821, 0.13244244, 1)
 script = ExtResource("1_6ns3p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2035674120]
-position = Vector2(1, 6.5)
+position = Vector2(-1, 10.5)
 shape = SubResource("RectangleShape2D_v5gy4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1267356240]
