@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cv35f4bujcmjq"]
+[gd_scene format=3 uid="uid://dmo8d0k21nsbi"]
 
 [ext_resource type="Script" uid="uid://dc02hof57joj1" path="res://script/good_crab.gd" id="1_352oc"]
 [ext_resource type="Shader" uid="uid://brqe8r3r2c8yq" path="res://assets/shader/damage.gdshader" id="2_asma4"]

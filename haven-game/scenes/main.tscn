@@ -246,6 +246,7 @@ position = Vector2(790, 227)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=898344478]
 stream = ExtResource("7_trceg")
+volume_db = 7.0
 autoplay = true
 
 [node name="CharacterBody2D3" parent="." unique_id=201412926 instance=ExtResource("9_85g3d")]
