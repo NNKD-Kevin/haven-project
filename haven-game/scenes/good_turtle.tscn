@@ -9,6 +9,7 @@
 size = Vector2(42, 33)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_236rq"]
+resource_local_to_scene = true
 shader = ExtResource("2_i6xtm")
 shader_parameter/flash_color = Color(0.9929301, 0.9929301, 0.99293, 1)
 shader_parameter/flash_value = 0.0
@@ -116,7 +117,7 @@ offset_right = 29.0
 offset_bottom = -15.0
 theme_override_styles/background = SubResource("StyleBoxFlat_1vivr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8vrlf")
-max_value = 300.0
+max_value = 250.0
 value = 50.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1988885352]

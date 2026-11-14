@@ -9,7 +9,8 @@ var good_turtle_path=preload("res://scenes/good_turtle.tscn")
 var bad_turtle_path=preload("res://scenes/bad_turtle.tscn")
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 var ready_to_start = false
-@onready var h_box_container: HBoxContainer = $HBoxContainer
+var combat=false
+@onready var h_box_container: HBoxContainer = $Recruit/HBoxContainer
 
 var starting_nodes:int
 var current_nodes:int
@@ -58,18 +59,29 @@ func spawn_type(type):
 		bad_turtle.global_position = Vector2(randi_range(700,900),randi_range(150,500))
 		get_parent().add_child(bad_turtle)
 
-
+func _process(delta: float) -> void:
+	if len(Global.enemies)==0 and combat:
+		combat=false
+		Global.level+=1
+		print(Global.level)
+	if len(Global.animals)==0:
+		combat=false
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("start"):
+	if Input.is_action_just_pressed("start") and not combat:
+		var count=ceil(Global.level/3.0)
+		for i in range(count):
+			randomize()
+			var gacha=randi_range(1,4)
+			if gacha==1:Global.enemies.append('bad_crab')
+			elif gacha==2:Global.enemies.append('bad_chick')
+			elif gacha==3:Global.enemies.append('bad_wolf')
+			elif gacha==4:Global.enemies.append('bad_turtle')
 		for animal in Global.animals:
 			spawn_type(animal)
 		for enemy in Global.enemies:
 			spawn_type(enemy)
+		combat=true
 		
 	
 	
-
-
-func _on_button_2_pressed() -> void:
-	pass # Replace with function body.

@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 				hp+=25
 		
 	if hp<=0:
+		Global.enemies.erase(self)
 		queue_free()
 	if velocity.x<0:
 		animated_sprite_2d.flip_h=true

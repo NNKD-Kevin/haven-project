@@ -92,6 +92,12 @@ bg_color = Color(0.07123137, 0.0712314, 0.07123133, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
 bg_color = Color(1.150325e-05, 0.6457821, 0.13244244, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmteg"]
+resource_local_to_scene = true
+shader = ExtResource("2_xex4f")
+shader_parameter/flash_color = Color(0, 0, 0, 1)
+shader_parameter/flash_value = 0.0
+
 [node name="CharacterBody2D2" type="CharacterBody2D" unique_id=269655125]
 script = ExtResource("1_l1kpt")
 
@@ -124,6 +130,7 @@ wait_time = 30.0
 one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1745123299]
+material = SubResource("ShaderMaterial_vmteg")
 stream = ExtResource("4_vmteg")
 volume_db = 15.0
 

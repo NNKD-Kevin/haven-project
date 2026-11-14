@@ -9,6 +9,7 @@
 size = Vector2(42, 33)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_236rq"]
+resource_local_to_scene = true
 shader = ExtResource("2_asma4")
 shader_parameter/flash_color = Color(0.9929301, 0.9929301, 0.99293, 1)
 shader_parameter/flash_value = 0.0

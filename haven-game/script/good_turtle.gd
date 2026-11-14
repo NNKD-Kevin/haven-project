@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var bounciness:=1.0
 const speed=50
-var hp=300
+var hp=250
 var damage=10
 var side='good'
 var type='good_turtle'
@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.play("attack")
 				collider.flash_animation.play("flash")
 	if hp<=0:
+		Global.animals.erase(self)
 		queue_free()
 
 	
