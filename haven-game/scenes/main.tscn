@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://4so7t222clb" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://cv35f4bujcmjq" path="res://scenes/good_crab.tscn" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cpu2fsfhn4oyr" path="res://scenes/bad_crab.tscn" id="6_eb6dy"]
-[ext_resource type="AudioStream" uid="uid://bbvlv5wwndalv" path="res://assets/Sounds/443128__sirkoto51__boss-battle-loop-3.wav" id="7_trceg"]
+[ext_resource type="AudioStream" uid="uid://bbvlv5wwndalv" path="res://assets/Sounds/boss.wav" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://bvasb4rfeaj3y" path="res://scenes/good_chick.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://de6yskmij0jxq" path="res://scenes/bad_chick.tscn" id="10_choun"]
 
