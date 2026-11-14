@@ -1,5 +1,8 @@
 extends Node
 var battle_started=false
+var animals=['crab',]
+var level=1
+
 func _ready()->void:
 	Engine.time_scale=1.0
 func _input(event: InputEvent) -> void:
