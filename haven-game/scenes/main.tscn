@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cqwa2xlvhatxv" path="res://assets/Pixelout Personal Use Only.ttf" id="2_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c2l4jjr7llacl" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="2_tipki"]
 [ext_resource type="Texture2D" uid="uid://dk3nov0xb4p4l" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="3_85g3d"]
+[ext_resource type="Texture2D" uid="uid://cn2hyikj1m6c7" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Sprites/Basic Sprites 4x.png" id="4_85g3d"]
 [ext_resource type="Texture2D" uid="uid://4so7t222clb" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="4_choun"]
 [ext_resource type="Script" uid="uid://chyi0p7bytlcf" path="res://script/recruit.gd" id="7_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://bbvlv5wwndalv" path="res://assets/Sounds/boss.wav" id="7_trceg"]
@@ -38,6 +39,57 @@ corner_radius_bottom_left = 30
 corner_detail = 20
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(216, 144, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(0, 144, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("4_85g3d")
+region = Rect2(288, 72, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ejki1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_choun")
+}],
+"loop": 1,
+"name": &"Chicken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4ey")
+}],
+"loop": 1,
+"name": &"Crab",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}],
+"loop": 1,
+"name": &"Turtle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}],
+"loop": 1,
+"name": &"Wolf",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
 bg_color = Color(0.8487718, 0.5894005, 0.5008196, 1)
@@ -316,12 +368,12 @@ script = ExtResource("1_tipki")
 
 [node name="Recruit" type="Node" parent="." unique_id=1860737163]
 
-[node name="Label" type="Label" parent="Recruit" unique_id=1682704947]
+[node name="Title" type="Label" parent="Recruit" unique_id=1682704947]
 z_index = 5
 offset_left = 170.0
-offset_top = 47.0
+offset_top = 48.0
 offset_right = 969.0
-offset_bottom = 127.0
+offset_bottom = 128.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_85g3d")
 theme_override_font_sizes/font_size = 80
@@ -350,6 +402,12 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_eeo6d")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_85g3d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Recruit/HBoxContainer/Option 1" unique_id=470237730]
+position = Vector2(146, 132)
+scale = Vector2(2.4583333, 2.375)
+sprite_frames = SubResource("SpriteFrames_ejki1")
+animation = &"Chicken"
+
 [node name="Option2" type="Button" parent="Recruit/HBoxContainer" unique_id=46177921]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -357,12 +415,24 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_choun")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ya4ey")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Recruit/HBoxContainer/Option2" unique_id=942982636]
+position = Vector2(146, 132)
+scale = Vector2(2.4583333, 2.375)
+sprite_frames = SubResource("SpriteFrames_ejki1")
+animation = &"Chicken"
+
 [node name="Option3" type="Button" parent="Recruit/HBoxContainer" unique_id=1170694630]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_eb6dy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_trceg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Recruit/HBoxContainer/Option3" unique_id=1029671725]
+position = Vector2(146, 132)
+scale = Vector2(2.4583333, 2.375)
+sprite_frames = SubResource("SpriteFrames_ejki1")
+animation = &"Chicken"
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1151433845]
 tile_set = SubResource("TileSet_eeo6d")
