@@ -7,6 +7,36 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jphpq"]
 texture = ExtResource("2_ije3m")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejki1"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ortuk"]
+bg_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ije3m"]
+bg_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
 [sub_resource type="Animation" id="Animation_wtg6v"]
 length = 0.001
 tracks/0/type = "value"
@@ -66,6 +96,29 @@ offset_right = 1157.0
 offset_bottom = 653.0
 color = Color(0, 0, 0, 0)
 
+[node name="Button" type="Button" parent="." unique_id=620422427]
+offset_left = 277.0
+offset_top = 371.0
+offset_right = 891.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_043hq")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_ejki1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ortuk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ije3m")
+text = "Retry"
+
+[node name="Label2" type="Label" parent="." unique_id=1748277485]
+offset_left = 82.0
+offset_top = 277.0
+offset_right = 1119.0
+offset_bottom = 348.0
+theme_override_fonts/font = ExtResource("3_043hq")
+theme_override_font_sizes/font_size = 70
+text = "You can still bounce back!"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1954653155]
 libraries/ = SubResource("AnimationLibrary_fsboe")
 
@@ -81,4 +134,13 @@ text = "You lost!"
 [node name="Timer" type="Timer" parent="." unique_id=1439335699]
 wait_time = 4.0
 
+[node name="Timer2" type="Timer" parent="." unique_id=1013189105]
+wait_time = 2.0
+
+[node name="Timer3" type="Timer" parent="." unique_id=549344897]
+wait_time = 2.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
