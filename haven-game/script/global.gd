@@ -3,7 +3,7 @@ var battle_started=false
 var animals=[]
 var enemies=[]
 var level=1
-
+var ready_to_start = false
 func _ready()->void:
 	Engine.time_scale=1.0
 func _input(event: InputEvent) -> void:
