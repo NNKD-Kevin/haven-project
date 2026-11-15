@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c7l2rlc4gjxm" path="res://script/defeat.gd" id="1_ortuk"]
 [ext_resource type="Texture2D" uid="uid://fyt50b1pjpo6" path="res://assets/MMBG.png" id="2_ije3m"]
 [ext_resource type="FontFile" uid="uid://cqwa2xlvhatxv" path="res://assets/Pixelout Personal Use Only.ttf" id="3_043hq"]
+[ext_resource type="AudioStream" uid="uid://jgargahnfp5v" path="res://assets/Sounds/slap.wav" id="4_ije3m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jphpq"]
 texture = ExtResource("2_ije3m")
@@ -133,12 +134,18 @@ text = "You lost!"
 
 [node name="Timer" type="Timer" parent="." unique_id=1439335699]
 wait_time = 4.0
+one_shot = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=1013189105]
 wait_time = 2.0
+one_shot = true
 
 [node name="Timer3" type="Timer" parent="." unique_id=549344897]
 wait_time = 2.0
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=465697835]
+stream = ExtResource("4_ije3m")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
