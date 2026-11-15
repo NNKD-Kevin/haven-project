@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 				Global.enemies.erase(collider)
 				devour_ready=false
 				devour_timer.start()
-				hp+=25
+				hp+=collider.hp
 		
 	if hp<=0:
 		Global.animals.erase(self)
