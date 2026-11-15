@@ -21,6 +21,7 @@ extends HBoxContainer
 @onready var description3=[chicken3,crab3,turtle3,wolf3]
 @onready var descriptions=[description1,description2,description3]
 var index=0
+@onready var center_container: CenterContainer = $"../../CenterContainer"
 
 
 
@@ -68,6 +69,8 @@ func hideall():
 func _pick(i: int):
 	Global.animals.append(choices[i])
 	hideall()
+	if center_container:
+		center_container.visible = true
 
 func _on_option_1_pressed() -> void: _pick(0)
 func _on_option_2_pressed() -> void: _pick(1)
