@@ -62,11 +62,11 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start") and not Global.combat and Global.ready_to_start:
-	if center_container:
-		center_container.visible=false
-	var count = ceil(Global.level / 2.0)
-	for i in range(count):
-		spawn_type(ENEMY_TYPES.pick_random())
-	for animal in Global.animals:
-		spawn_type(animal)
-	Global.combat = true
+		if center_container:
+			center_container.visible=false
+		var count = ceil(Global.level / 2.0)
+		for i in range(count):
+			spawn_type(ENEMY_TYPES.pick_random())
+		for animal in Global.animals:
+			spawn_type(animal)
+		Global.combat = true
