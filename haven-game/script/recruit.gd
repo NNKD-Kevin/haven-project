@@ -56,6 +56,7 @@ func choose():
 				sprite.play('Wolf')
 				choices.append('good_wolf')
 				if descriptions[index][3]:descriptions[index][3].visible=true
+
 		index+=1
 func _ready():
 	choose()

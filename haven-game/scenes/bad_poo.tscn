@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dhowrp4c235ov"]
+
+[ext_resource type="Script" uid="uid://bgelp8wtmje68" path="res://script/bad_poo.gd" id="1_s1vow"]
+[ext_resource type="Texture2D" uid="uid://det047ufil3ln" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Sprites/poo.png" id="2_u2dij"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c43gw"]
+radius = 9.219544
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=632679528]
+collision_layer = 2
+script = ExtResource("1_s1vow")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=953948282]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_u2dij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=272194000]
+position = Vector2(2, 5)
+shape = SubResource("CircleShape2D_c43gw")

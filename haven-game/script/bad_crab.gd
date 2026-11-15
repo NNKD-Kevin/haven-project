@@ -11,6 +11,8 @@ var type='bad_crab'
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var cooldown: Timer = $cooldown
+@onready var stun: Timer = $stun
+var moving=true
 var ready_to_hit=true
 var started=false
 func _ready() -> void:
@@ -25,7 +27,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var collision=move_and_collide(velocity*delta)
-	if collision:
+	if collision and moving:
 		velocity=velocity.bounce(collision.get_normal())*bounciness
 		var collider=collision.get_collider()
 		if collider is CharacterBody2D:
@@ -47,3 +49,7 @@ func _on_animation_finished() -> void:
 
 func _on_cooldown_timeout() -> void:
 	ready_to_hit=true
+
+
+func _on_stun_timeout() -> void:
+	moving=true

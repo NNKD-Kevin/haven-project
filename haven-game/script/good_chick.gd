@@ -12,6 +12,8 @@ var type='good_chick'
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation
 @onready var grow_timer: Timer = $grow_timer
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var stun: Timer = $stun
+var moving=true
 
 
 
@@ -31,7 +33,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var collision=move_and_collide(velocity*delta)
-	if collision:
+	if collision and moving:
 		velocity=velocity.bounce(collision.get_normal())*bounciness
 		var collider=collision.get_collider()
 		if not (collider is CharacterBody2D) and grown:
