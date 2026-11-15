@@ -134,5 +134,10 @@ material = SubResource("ShaderMaterial_vmteg")
 stream = ExtResource("4_vmteg")
 volume_db = 15.0
 
+[node name="stun" type="Timer" parent="." unique_id=1211901908]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="timeout" from="devour_timer" to="." method="_on_devour_timer_timeout"]
+[connection signal="timeout" from="stun" to="." method="_on_stun_timeout"]

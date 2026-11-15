@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dk3nov0xb4p4l" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="3_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cn2hyikj1m6c7" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Sprites/Basic Sprites 4x.png" id="4_85g3d"]
 [ext_resource type="Texture2D" uid="uid://4so7t222clb" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="4_choun"]
+<<<<<<< HEAD
 [ext_resource type="FontFile" uid="uid://c0cywrs2b2m11" path="res://assets/Pix32.ttf" id="5_choun"]
+=======
+[ext_resource type="Texture2D" uid="uid://c7w6jcxxf2kik" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Animations/Dainty Pig/DaintyPig.png" id="5_choun"]
+>>>>>>> db32ec5d79980721b8291e8004d9270add798c9e
 [ext_resource type="Script" uid="uid://chyi0p7bytlcf" path="res://script/recruit.gd" id="7_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://bc42s2dmhbce6" path="res://assets/Sounds/boss.mp3" id="9_85g3d"]
 
@@ -49,6 +53,10 @@ region = Rect2(72, 0, 72, 72)
 atlas = ExtResource("4_85g3d")
 region = Rect2(216, 144, 72, 72)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("5_choun")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
 atlas = ExtResource("4_85g3d")
 region = Rect2(0, 144, 72, 72)
@@ -73,6 +81,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Crab",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}],
+"loop": 1,
+"name": &"Pig",
 "speed": 5.0
 }, {
 "frames": [{
@@ -445,7 +461,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
 position = Vector2(145.6, 68.656006)
 scale = Vector2(1.6, 1.546)
 sprite_frames = SubResource("SpriteFrames_ejki1")
-animation = &"Chicken"
+animation = &"Pig"
 
 [node name="Description" type="Node" parent="Recruit/HBoxContainer/Option1" unique_id=522973224]
 
@@ -588,7 +604,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_trceg")
 position = Vector2(145.6, 68.656006)
 scale = Vector2(1.6, 1.546)
 sprite_frames = SubResource("SpriteFrames_ejki1")
-animation = &"Chicken"
+animation = &"Pig"
 
 [node name="Description" type="Node" parent="Recruit/HBoxContainer/Option3" unique_id=173582155]
 

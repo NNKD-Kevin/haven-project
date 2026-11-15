@@ -7,7 +7,7 @@ const SCENES = {
 	"bad_crab": preload("res://scenes/bad_crab.tscn"),
 	"bad_chick": preload("res://scenes/bad_chick.tscn"),
 	"bad_wolf": preload("res://scenes/bad_wolf.tscn"),
-	"bad_turtle": preload("res://scenes/bad_turtle.tscn"),
+	"bad_turtle": preload("res://scenes/bad_turtle.tscn")
 	}
 
 
@@ -40,7 +40,6 @@ func clear():
 	for e in get_tree().get_nodes_in_group("enemies"):
 		e.queue_free()
 	Global.ready_to_start=false
-	Recruit.choose()
 func _process(_delta: float) -> void:
 	if not Global.combat:
 		return
@@ -64,8 +63,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start") and not Global.combat and Global.ready_to_start:
 		if center_container:
 			center_container.visible=false
-		var count = ceil(Global.level / 2.0)
-		for i in range(count):
+		for i in range(Global.level):
 			spawn_type(ENEMY_TYPES.pick_random())
 		for animal in Global.animals:
 			spawn_type(animal)

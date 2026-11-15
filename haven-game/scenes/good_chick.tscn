@@ -161,5 +161,9 @@ one_shot = true
 stream = ExtResource("5_vn3id")
 volume_db = 3.0
 
+[node name="stun" type="Timer" parent="." unique_id=1734817135]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="timeout" from="grow_timer" to="." method="_on_grow_timer_timeout"]

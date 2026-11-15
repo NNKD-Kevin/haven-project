@@ -9,6 +9,8 @@ var type='bad_wolf'
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation
 @onready var devour_timer: Timer = $devour_timer
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var stun: Timer = $stun
+var moving=true
 
 var devour_ready=false
 var started=false
@@ -28,7 +30,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var collision=move_and_collide(velocity*delta)
-	if collision:
+	if collision and moving:
 		velocity=velocity.bounce(collision.get_normal())*bounciness
 		var collider=collision.get_collider()
 		if collider is CharacterBody2D:
@@ -51,3 +53,7 @@ func _physics_process(delta: float) -> void:
 func _on_devour_timer_timeout() -> void:
 	devour_ready=true
 	audio_stream_player_2d.play()
+
+
+func _on_stun_timeout() -> void:
+	moving=true
