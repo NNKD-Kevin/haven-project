@@ -7,6 +7,7 @@ extends Node2D
 @onready var timer_retry: Timer = $Timer3
 @onready var button: Button = $Button
 @onready var slap: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var lose: AudioStreamPlayer2D = $AudioStreamPlayer2D2
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +17,7 @@ func _ready() -> void:
 	button.visible = false
 	timer_die.start()
 	animation_player.play("darken")
+	lose.play()
 	
 	
 func _on_timer_timeout() -> void:
