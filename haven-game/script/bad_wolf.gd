@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 				devour_ready=false
 				devour_timer.start()
 				hp+=collider.hp
-		
+				hp=min(100,hp)
 	if hp<=0:
 		Global.enemies.erase(self)
 		queue_free()
