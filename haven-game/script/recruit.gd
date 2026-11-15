@@ -22,6 +22,8 @@ extends HBoxContainer
 @onready var descriptions=[description1,description2,description3]
 var index=0
 @onready var center_container: CenterContainer = $"../../CenterContainer"
+@onready var upcoming_sprite: HBoxContainer = $"../../Upcoming Enemy2/Upcoming_sprite"
+@onready var upcoming: Label = $"../../Upcoming Enemy2/Upcoming"
 
 
 
@@ -30,6 +32,10 @@ var choices=[]
 func choose():
 	randomize()
 	h_box_container.visible = true
+	if upcoming_sprite:
+		upcoming_sprite.visible = true
+	if upcoming:
+		upcoming.visible = true
 	if label:
 		label.visible = true
 	for option in options:
@@ -62,6 +68,10 @@ func _ready():
 func hideall():
 	hide()
 	label.hide()
+	if upcoming_sprite:
+		upcoming_sprite.visible = false
+	if upcoming:
+		upcoming.visible = false
 	for description in descriptions:
 		for i in description:
 			i.hide()
