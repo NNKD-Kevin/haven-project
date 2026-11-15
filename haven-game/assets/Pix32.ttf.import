@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cqwa2xlvhatxv"
-path="res://.godot/imported/Pixelout Personal Use Only.ttf-e3df324d7aaf6c0aa769a9fd03aa5175.fontdata"
+uid="uid://c0cywrs2b2m11"
+path="res://.godot/imported/Pix32.ttf-88978be32d44380c9a2c77c0f24e7c46.fontdata"
 
 [deps]
 
-source_file="res://assets/Pixelout Personal Use Only.ttf"
-dest_files=["res://.godot/imported/Pixelout Personal Use Only.ttf-e3df324d7aaf6c0aa769a9fd03aa5175.fontdata"]
+source_file="res://assets/Pix32.ttf"
+dest_files=["res://.godot/imported/Pix32.ttf-88978be32d44380c9a2c77c0f24e7c46.fontdata"]
 
 [params]
 

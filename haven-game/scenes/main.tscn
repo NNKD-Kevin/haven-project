@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dk3nov0xb4p4l" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="3_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cn2hyikj1m6c7" path="res://assets/Basic Asset Pack/Basic Asset Pack/Basic Animal Sprites/Basic Sprites 4x.png" id="4_85g3d"]
 [ext_resource type="Texture2D" uid="uid://4so7t222clb" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="4_choun"]
+[ext_resource type="FontFile" uid="uid://c0cywrs2b2m11" path="res://assets/Pix32.ttf" id="5_choun"]
 [ext_resource type="Script" uid="uid://chyi0p7bytlcf" path="res://script/recruit.gd" id="7_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://bc42s2dmhbce6" path="res://assets/Sounds/boss.mp3" id="9_85g3d"]
 
@@ -455,6 +456,7 @@ offset_top = 286.0
 offset_right = 380.0
 offset_bottom = 491.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_choun")
 text = "CHICKEN:
 HP: 100
 Ability: Start as a harmless 
@@ -469,6 +471,7 @@ offset_left = 121.0
 offset_top = 278.0
 offset_right = 385.0
 offset_bottom = 379.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "CRAB:
 HP: 100
 Bounce enemies: Deal 20 damage 
@@ -480,6 +483,7 @@ offset_left = 123.0
 offset_top = 286.0
 offset_right = 384.0
 offset_bottom = 491.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "WOLF:
 HP: 100
 Ability: Gets hungry every 30s
@@ -495,6 +499,7 @@ offset_left = 133.0
 offset_top = 306.0
 offset_right = 341.0
 offset_bottom = 433.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "Turtle:
 HP: 250
 Ability: Moves super slowly
@@ -522,6 +527,7 @@ offset_left = 434.0
 offset_top = 283.0
 offset_right = 687.0
 offset_bottom = 488.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "CHICKEN:
 HP: 100
 Ability: Start as a harmless 
@@ -536,6 +542,7 @@ offset_left = 428.0
 offset_top = 275.0
 offset_right = 753.0
 offset_bottom = 376.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "CRAB:
 HP: 100
 Bounce enemies: Deal 20 damage
@@ -547,6 +554,7 @@ offset_left = 430.0
 offset_top = 283.0
 offset_right = 691.0
 offset_bottom = 488.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "WOLF:
 HP: 100
 Ability: Gets hungry every 30s
@@ -562,6 +570,7 @@ offset_left = 440.0
 offset_top = 303.0
 offset_right = 648.0
 offset_bottom = 430.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "Turtle:
 HP: 250
 Ability: Moves super slowly
@@ -589,6 +598,7 @@ offset_left = 734.0
 offset_top = 290.0
 offset_right = 987.0
 offset_bottom = 495.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "CHICKEN:
 HP: 100
 Ability: Start as a harmless 
@@ -603,6 +613,7 @@ offset_left = 728.0
 offset_top = 282.0
 offset_right = 988.0
 offset_bottom = 383.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "CRAB:
 HP: 100
 Bounce enemies: Deal 20 damage
@@ -614,6 +625,7 @@ offset_left = 730.0
 offset_top = 290.0
 offset_right = 991.0
 offset_bottom = 495.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "WOLF:
 HP: 100
 Ability: Gets hungry every 30s
@@ -629,6 +641,7 @@ offset_left = 740.0
 offset_top = 310.0
 offset_right = 948.0
 offset_bottom = 437.0
+theme_override_fonts/font = ExtResource("5_choun")
 text = "Turtle:
 HP: 250
 Ability: Moves super slowly
@@ -672,10 +685,10 @@ autoplay = &"pulse"
 [node name="Upcoming Enemy2" type="Node" parent="." unique_id=462890671]
 
 [node name="Upcoming_sprite" type="HBoxContainer" parent="Upcoming Enemy2" unique_id=1244262470]
-offset_left = 254.0
-offset_top = -7.0
-offset_right = 1278.0
-offset_bottom = 33.0
+offset_left = 259.0
+offset_top = -9.0
+offset_right = 1283.0
+offset_bottom = 31.0
 theme_override_constants/separation = 80
 
 [node name="U1" type="Control" parent="Upcoming Enemy2/Upcoming_sprite" unique_id=1735834865]

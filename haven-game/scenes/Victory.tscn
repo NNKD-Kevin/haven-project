@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://y3ngjr76stqp"]
+
+[ext_resource type="Script" uid="uid://c7no685mbfeph" path="res://script/victory.gd" id="1_7o3sp"]
+[ext_resource type="Texture2D" uid="uid://fyt50b1pjpo6" path="res://assets/MMBG.png" id="2_dmm2d"]
+[ext_resource type="FontFile" uid="uid://cqwa2xlvhatxv" path="res://assets/Pixelout Personal Use Only.ttf" id="3_dmm2d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ejki1"]
+texture = ExtResource("2_dmm2d")
+
+[sub_resource type="Animation" id="Animation_i42bd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weaken:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("withdrew:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_0ooo3"]
+resource_name = "dakr"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eppx8"]
+resource_name = "weakne"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weaken:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5ygf6"]
+resource_name = "withdrew"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("withdrew:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5vt6b"]
+_data = {
+&"RESET": SubResource("Animation_i42bd"),
+&"dakr": SubResource("Animation_0ooo3"),
+&"weakne": SubResource("Animation_eppx8"),
+&"withdrew": SubResource("Animation_5ygf6")
+}
+
+[node name="Victory" type="Node2D" unique_id=1491082000]
+script = ExtResource("1_7o3sp")
+
+[node name="Panel" type="Panel" parent="." unique_id=1015873119]
+offset_right = 1156.0
+offset_bottom = 652.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ejki1")
+
+[node name="ColorRect" type="ColorRect" parent="Panel" unique_id=1055413928]
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 0)
+
+[node name="Weaken" type="Label" parent="." unique_id=1112853079]
+offset_left = 344.0
+offset_top = 300.0
+offset_right = 827.0
+offset_bottom = 351.0
+theme_override_fonts/font = ExtResource("3_dmm2d")
+theme_override_font_sizes/font_size = 50
+text = "The raid weakens"
+
+[node name="withdrew" type="Label" parent="." unique_id=1743336661]
+offset_left = 287.0
+offset_top = 295.0
+offset_right = 889.0
+offset_bottom = 346.0
+theme_override_fonts/font = ExtResource("3_dmm2d")
+theme_override_font_sizes/font_size = 50
+text = "The horde withdrew"
+
+[node name="Win" type="Label" parent="." unique_id=6166544]
+offset_left = 55.0
+offset_top = 39.0
+offset_right = 1106.0
+offset_bottom = 290.0
+theme_override_fonts/font = ExtResource("3_dmm2d")
+theme_override_font_sizes/font_size = 250
+text = "You win"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1844739547]
+libraries/ = SubResource("AnimationLibrary_5vt6b")
+
+[node name="Timer" type="Timer" parent="." unique_id=55526828]
+wait_time = 2.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=456062102]
+wait_time = 4.0
+one_shot = true
+
+[node name="Timer3" type="Timer" parent="." unique_id=878099113]
+wait_time = 4.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
