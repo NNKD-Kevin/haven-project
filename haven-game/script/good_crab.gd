@@ -9,7 +9,9 @@ var type='good_crab'
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var cooldown: Timer = $cooldown
 
+var ready_to_hit=true
 
 var started=false
 func _ready() -> void:
@@ -28,11 +30,14 @@ func _physics_process(delta: float) -> void:
 		velocity=velocity.bounce(collision.get_normal())*bounciness
 		var collider=collision.get_collider()
 		if collider is CharacterBody2D:
-			if collider.side=='bad':
+			if collider.side=='bad' and ready_to_hit:
 				collider.hp-=damage
 				animated_sprite_2d.play("attack")
 				collider.flash_animation.play("flash")
 				audio_stream_player_2d.play()
+				ready_to_hit=false
+				cooldown.start()
+				
 	if hp<=0:
 		Global.animals.erase(self)
 		queue_free()
@@ -41,3 +46,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_animation_finished() -> void:
 		animated_sprite_2d.play("default")
+
+
+func _on_cooldown_timeout() -> void:
+	ready_to_hit=true

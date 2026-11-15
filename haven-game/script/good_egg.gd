@@ -15,4 +15,6 @@ func _physics_process(delta: float) -> void:
 			elif collider.side=='good':
 				collider.hp+=10
 				queue_free()
+	if not Global.combat:
+		queue_free()
 			

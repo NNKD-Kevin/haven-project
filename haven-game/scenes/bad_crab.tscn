@@ -135,4 +135,9 @@ material = SubResource("ShaderMaterial_pyl0t")
 stream = ExtResource("4_7fsrd")
 volume_db = 5.0
 
+[node name="cooldown" type="Timer" parent="." unique_id=842899073]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

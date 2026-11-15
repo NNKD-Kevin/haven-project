@@ -8,7 +8,8 @@ var type='good_turtle'
 @onready var health_bar=$HealthBar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var flash_animation: AnimationPlayer = $AnimatedSprite2D/FlashAnimation
-
+@onready var cooldown: Timer = $cooldown
+var ready_to_hit=true
 
 var started=false
 func _ready() -> void:
@@ -25,13 +26,19 @@ func _physics_process(delta: float) -> void:
 		velocity=velocity.bounce(collision.get_normal())*bounciness
 		var collider=collision.get_collider()
 		if collider is CharacterBody2D:
-			if collider.side=='bad':
+			if collider.side=='bad' and ready_to_hit:
 				collider.hp-=damage
 				health_bar.value=hp
 				animated_sprite_2d.play("attack")
 				collider.flash_animation.play("flash")
+				ready_to_hit=false
+				cooldown.start()
 	if hp<=0:
 		Global.animals.erase(self)
 		queue_free()
 
 	
+
+
+func _on_cooldown_timeout() -> void:
+	ready_to_hit=true

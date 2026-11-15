@@ -11,9 +11,8 @@ const SCENES = {
 }
 const ENEMY_TYPES = ["bad_crab", "bad_chick", "bad_wolf", "bad_turtle"]
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
-var combat=false
 @onready var h_box_container: HBoxContainer = $Recruit/HBoxContainer
+
 
 var starting_nodes:int
 var current_nodes:int
@@ -28,33 +27,38 @@ func spawn_type(type:String):
 	node.add_to_group("animals" if is_good else "enemies")
 	get_parent().add_child(node)
 func clear():
+	if not is_inside_tree():
+		return
 	for a in get_tree().get_nodes_in_group("animals"):
 		a.queue_free()
+	for e in get_tree().get_nodes_in_group("enemies"):
+		e.queue_free()
 	Global.ready_to_start=false
 	Recruit.choose()
 func _process(_delta: float) -> void:
-	if not combat:
+	if not Global.combat:
 		return
 
 	var animals_left = get_tree().get_nodes_in_group("animals").size()
 	var enemies_left = get_tree().get_nodes_in_group("enemies").size()
 
 	if animals_left == 0:
-		combat = false
+		Global.combat = false
 		get_tree().change_scene_to_file("res://scenes/Defeat.tscn")
 		clear()
 	elif enemies_left == 0:
-		combat = false
+		Global.combat = false
 		Global.level += 1
 		print(Global.level)
 		clear()
+		h_box_container.choose()
 		
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("start") and not combat and Global.ready_to_start:
+	if event.is_action_pressed("start") and not Global.combat and Global.ready_to_start:
 		var count = ceil(Global.level / 2.0)
 		for i in range(count):
 			spawn_type(ENEMY_TYPES.pick_random())
 		for animal in Global.animals:
 			spawn_type(animal)
-		combat = true
+		Global.combat = true
