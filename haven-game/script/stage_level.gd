@@ -8,7 +8,11 @@ const SCENES = {
 	"bad_chick": preload("res://scenes/bad_chick.tscn"),
 	"bad_wolf": preload("res://scenes/bad_wolf.tscn"),
 	"bad_turtle": preload("res://scenes/bad_turtle.tscn"),
-}
+	}
+
+
+@onready var center_container: CenterContainer = $CenterContainer
+
 const ENEMY_TYPES = ["bad_crab", "bad_chick", "bad_wolf", "bad_turtle"]
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var h_box_container: HBoxContainer = $Recruit/HBoxContainer
@@ -19,6 +23,8 @@ var current_nodes:int
 
 func _ready():
 	audio_stream_player_2d.play()
+	if center_container:
+		center_container.visible = false
 func spawn_type(type:String):
 	var node = SCENES[type].instantiate()
 	var is_good = type.begins_with("good")
@@ -56,9 +62,11 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start") and not Global.combat and Global.ready_to_start:
-		var count = ceil(Global.level / 2.0)
-		for i in range(count):
-			spawn_type(ENEMY_TYPES.pick_random())
-		for animal in Global.animals:
-			spawn_type(animal)
-		Global.combat = true
+	if center_container:
+		center_container.visible=false
+	var count = ceil(Global.level / 2.0)
+	for i in range(count):
+		spawn_type(ENEMY_TYPES.pick_random())
+	for animal in Global.animals:
+		spawn_type(animal)
+	Global.combat = true
